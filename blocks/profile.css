@@ -85,7 +85,6 @@
   line-height: 1;
   border: 2px;
   cursor: pointer;
-  width: 100%;
 }
 
 .profile__add-btn:hover {
@@ -130,5 +129,6 @@
 
   .profile__add-btn {
     margin: 0;
+    width: 100%;
   }
 }
