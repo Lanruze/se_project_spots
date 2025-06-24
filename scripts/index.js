@@ -52,8 +52,8 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 function handleNewPostSubmit(evt) {
   evt.preventDefault();
-  newPostLinkEl.textContent = newPostLinkInput.value;
-  newPostCaptionEl.textContent = newPostCaptionInput.value;
+  console.log(newPostLinkInput.value);
+  console.log(newPostCaptionInput.value);
   newPostModal.classList.remove("modal_is-opened");
 }
 

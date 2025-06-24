@@ -22,14 +22,13 @@
 }
 
 .modal__container {
+  box-sizing: border-box;
   max-width: 730px;
   width: 100%;
   border-radius: 8px;
   background-color: #fff;
   padding: 32px 50px;
   position: relative;
-  /*background-color: ;
-  transition: background-color 0.5s ease-out, opacity 0.5s ease-out;*/
 }
 
 .modal__close-btn {
@@ -101,6 +100,7 @@
   color: rgba(252, 245, 229, 1);
   height: 52px;
   cursor: pointer;
+  border: none;
 }
 
 .modal__submit-btn:hover {
