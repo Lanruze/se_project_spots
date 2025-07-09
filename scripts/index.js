@@ -39,7 +39,7 @@ const editProfileDescriptionInput = editProfileModal.querySelector(
 
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
-const newProfileCloseBtn = newPostModal.querySelector(".modal__close-btn");
+const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
 const newPostLinkInput = newPostModal.querySelector("#card-image-input");
 const newPostCaptionInput = newPostModal.querySelector("#card-caption-input");
@@ -50,29 +50,43 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 const newPostLinkEl = document.querySelector(".card__image");
 const newPostCaptionEl = document.querySelector(".card__title");
 
+// function created for openModal & closeModal to allow a reusuable code and replace previous open and close modal functions
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  editProfileModal.classList.add("modal_is-opened");
+  //editProfileModal.classList.add("modal_is-opened"); replaced with reusuable function in next line
+  openModal(editProfileModal);
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
-  editProfileModal.classList.remove("modal_is-opened");
+  //editProfileModal.classList.remove("modal_is-opened"); replaced with reusuable function in next line
+  closeModal(editProfileModal);
 });
 
 newPostBtn.addEventListener("click", function () {
-  newPostModal.classList.add("modal_is-opened");
+  //newPostModal.classList.add("modal_is-opened");replaced with reusuable function in next line
+  openModal(newPostModal);
 });
 
-newProfileCloseBtn.addEventListener("click", function () {
-  newPostModal.classList.remove("modal_is-opened");
+newPostCloseBtn.addEventListener("click", function () {
+  //newPostModal.classList.remove("modal_is-opened");replaced with reusuable function in next line
+  closeModal(newPostModal);
 });
 
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-  editProfileModal.classList.remove("modal_is-opened");
+  //editProfileModal.classList.remove("modal_is-opened");replaced with reusuable function in next line
+  closeModal(editProfileModal);
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
@@ -81,7 +95,8 @@ function handleNewPostSubmit(evt) {
   evt.preventDefault();
   console.log(newPostLinkInput.value);
   console.log(newPostCaptionInput.value);
-  newPostModal.classList.remove("modal_is-opened");
+  //newPostModal.classList.remove("modal_is-opened"); replaced with reusuable function in next line
+  closeModal(newPostModal);
 }
 
 newPostForm.addEventListener("submit", handleNewPostSubmit);
