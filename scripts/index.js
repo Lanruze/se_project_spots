@@ -79,7 +79,6 @@ function getCardElement(data) {
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
   cardDeleteBtnEl.addEventListener("click", () => {
     cardElement.remove();
-    cardElement = null();
   });
   cardImageEl.addEventListener("click", () => {
     previewImageEl.src = data.link;
@@ -153,6 +152,9 @@ function handleNewPostSubmit(evt) {
 
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
+  newPostCaptionInput.value = ""; //used to clear the inputs after a new card is successfully added to let the user add the second card again without having to manually remove the old data.
+  newPostLinkInput.value = "";
+
   closeModal(newPostModal); //newPostModal.classList.remove("modal_is-opened"); replaced with reusuable function in next line
 }
 
