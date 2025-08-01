@@ -45,6 +45,7 @@ const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostForm = newPostModal.querySelector(".modal__form");
+const newPostSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 const newPostLinkInput = newPostModal.querySelector("#card-image-input");
 const newPostCaptionInput = newPostModal.querySelector("#card-caption-input");
 
@@ -55,6 +56,22 @@ const previewModal = document.querySelector("#preview-modal");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewCaptionEl = previewModal.querySelector(".modal__caption");
+
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    const isOverlayClick = event.target.classList.contains("modal");
+    if (isOverlayClick) {
+      closeModal(modal);
+    }
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal_is-opened");
+    if (openModal) closeModal(openModal);
+  }
+});
 
 const cardsList = document.querySelector(".cards__list");
 
@@ -80,6 +97,7 @@ function getCardElement(data) {
   cardDeleteBtnEl.addEventListener("click", () => {
     cardElement.remove();
   });
+
   cardImageEl.addEventListener("click", () => {
     previewImageEl.src = data.link;
     previewImageEl.alt = data.name;
@@ -154,7 +172,7 @@ function handleNewPostSubmit(evt) {
   cardsList.prepend(cardElement);
   newPostCaptionInput.value = ""; //used to clear the inputs after a new card is successfully added to let the user add the second card again without having to manually remove the old data.
   newPostLinkInput.value = "";
-
+  disableButton(newPostSubmitBtn, settings);
   closeModal(newPostModal); //newPostModal.classList.remove("modal_is-opened"); replaced with reusuable function in next line
 }
 
