@@ -10,12 +10,14 @@ const settings = {
 const showInputError = (formEl, inputEl, errorMsg, settings) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
+  errorMsgEl.classList.add(settings.errorClass);
   inputEl.classList.add(settings.inputErrorClass);
 };
 
 const hideInputError = (formEl, inputEl, settings) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = "";
+  errorMsgEl.classList.remove(settings.errorClass);
   inputEl.classList.remove(settings.inputErrorClass);
 };
 
