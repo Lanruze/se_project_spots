@@ -21,7 +21,7 @@ const hideInputError = (formEl, inputEl, settings) => {
   inputEl.classList.remove(settings.inputErrorClass);
 };
 
-const checkInputValidity = (formEl, inputEl) => {
+const checkInputValidity = (formEl, inputEl, settings) => {
   if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, inputEl.validationMessage, settings);
   } else {

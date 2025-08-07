@@ -57,6 +57,8 @@ const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewImageEl = previewModal.querySelector(".modal__image");
 const previewCaptionEl = previewModal.querySelector(".modal__caption");
 
+const cardsList = document.querySelector(".cards__list");
+
 document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("click", (event) => {
     const isOverlayClick = event.target.classList.contains("modal");
@@ -66,14 +68,14 @@ document.querySelectorAll(".modal").forEach((modal) => {
   });
 });
 
-document.addEventListener("keydown", (event) => {
+function handleEscapeKey(event) {
   if (event.key === "Escape") {
-    const openModal = document.querySelector(".modal_is-opened");
-    if (openModal) closeModal(openModal);
+    const openModalEl = document.querySelector(".modal_is-opened");
+    if (openModalEl) {
+      closeModal(openModalEl);
+    }
   }
-});
-
-const cardsList = document.querySelector(".cards__list");
+}
 
 const cardTemplate = document
   .querySelector("#card-template")
@@ -110,21 +112,19 @@ function getCardElement(data) {
   return cardElement;
 }
 
-const newPostLinkEl = document.querySelector(".card__image");
-const newPostCaptionEl = document.querySelector(".card__title");
-
 // function created for openModal & closeModal to allow a reusuable code and replace previous open and close modal functions
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscapeKey);
 }
 
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
-  editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   //editProfileModal.classList.add("modal_is-opened"); replaced with reusuable function in next line
   openModal(editProfileModal);
 });
