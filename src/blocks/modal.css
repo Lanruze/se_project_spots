@@ -178,6 +178,62 @@
   opacity: 80%;
 }
 
+.modal__delete-btns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 16px 8px;
+}
+#delete-modal .modal__form {
+  display: flex;
+  justify-content: space-between;
+}
+
+#delete-modal .modal__container {
+  width: 630px;
+  height: 172px;
+  opacity: 1;
+  border-radius: 8px;
+  padding-top: 32px 20px;
+
+}
+
+#delete-modal .modal__title {
+  font-size: 20px; /* smaller than your default 32px */
+  font-weight: 500;
+  line-height: 1;
+  text-align: center; /* optional: center the question text */
+}
+
+.modal__submit-btn_delete {
+  border-radius: 8px;
+  background-color: #fff;
+  color: #212121;
+  width: 156px;
+  height: 52px;
+  border: 1px solid;
+}
+
+.modal__submit-btn_delete:hover {
+  background-color: #ff6565;
+}
+.modal__submit-btn_cancel {
+  background-color: #fff;
+  color: #212121;
+  width: 156px;
+  height: 52px;
+  border: 1px solid;
+}
+
+.modal__close-btn_delete {
+  position: absolute;
+  top: 355px;
+  left: 1170px;
+  height: 40px;
+  width: 40px;
+
+}
+
 @media screen and (max-width: 627px) {
   .modal__container {
     max-width: 300px;
@@ -219,5 +275,9 @@
   .modal__submit-btn {
     max-width: none;
     width: 100%;
+  }
+
+  .modal__delete-btns {
+    flex-direction: column;
   }
 }
