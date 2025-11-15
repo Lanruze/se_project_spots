@@ -22,10 +22,15 @@ This project is called spots. It is an interactive social media web application 
 
 **Images & Screenshot of project features**
 
-- [Link to screenshots ](Screenshots.docx)
+- [Link to screenshots](Screenshots.docx)
 
 **Project link**
 https://lanruze.github.io/se_project_spots
 
-**Project Recording**
-https://www.loom.com/share/c85cb708296f4eb8811f8a7f16a14579?sid=5bfb7b4c-9443-4378-bbd0-ab05bf17c5a6
+
+## Project Pitch Videos
+
+Check out these videos, where I describe my project
+and some challenges I faced while building it:
+[First Video Spots](https://www.loom.com/share/c85cb708296f4eb8811f8a7f16a14579?sid=5bfb7b4c-9443-4378-bbd0-ab05bf17c5a6)
+[Second Video Spots](https://drive.google.com/file/d/1wDtSTqZClZTxe87w2CD4ANYH8vIuLvqY/view?usp=sharing)

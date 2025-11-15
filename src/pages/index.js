@@ -2,36 +2,6 @@ import "./index.css";
 import { enableValidation, settings } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
-const initialCards = [
-  {
-    name: "Golden Gate Bridge",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-  },
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-];
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -131,14 +101,14 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
-    if (data.isLiked) {
+  if (data.isLiked) {
     cardLikeBtnEl.classList.add("card__like-btn_active");
   }
 
   cardLikeBtnEl.addEventListener("click", (evt) => handleLike(evt, data._id));
 
   cardDeleteBtnEl.addEventListener("click", () => {
-    handleDeleteCard(cardElement, data._id)
+    handleDeleteCard(cardElement, data._id);
   });
 
   cardImageEl.addEventListener("click", () => {
@@ -148,27 +118,21 @@ function getCardElement(data) {
     openModal(previewModal);
   });
 
-  //cardTitle.textContent = // assign the name property of the data parameter
-  // assign values to the image's properties as described
   return cardElement;
 }
 
 function handleLike(evt, id) {
-  // 1. Check whether the card is currently liked or not
   const isLiked = evt.target.classList.contains("card__like-btn_active");
 
-  // 2. Call the changeLikeStatus method, passing the card ID and the opposite of isLiked
   api
     .changeLikeStatus(id, !isLiked)
     // 3. Handle the response
     .then((updatedCard) => {
-      // 4. In the .then, toggle the active class
       evt.target.classList.toggle("card__like-btn_active", updatedCard.isLiked);
     })
     .catch(console.error);
 }
 
-// function created for openModal & closeModal to allow a reusuable code and replace previous open and close modal functions
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
   document.addEventListener("keydown", handleEscapeKey);
@@ -182,12 +146,11 @@ function closeModal(modal) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  //editProfileModal.classList.add("modal_is-opened"); replaced with reusuable function in next line
+
   openModal(editProfileModal);
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
-  //editProfileModal.classList.remove("modal_is-opened"); replaced with reusuable function in next line
   closeModal(editProfileModal);
 });
 
@@ -196,12 +159,10 @@ previewModalCloseBtn.addEventListener("click", function () {
 });
 
 newPostBtn.addEventListener("click", function () {
-  //newPostModal.classList.add("modal_is-opened");replaced with reusuable function in next line
   openModal(newPostModal);
 });
 
 newPostCloseBtn.addEventListener("click", function () {
-  //newPostModal.classList.remove("modal_is-opened");replaced with reusuable function in next line
   closeModal(newPostModal);
 });
 
@@ -216,7 +177,7 @@ avatarModalCloseBtn.addEventListener("click", () => {
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   const submitBtn = evt.submitter;
-  setButtonText(submitBtn, true); // "Saving..."
+  setButtonText(submitBtn, true);
 
   const name = editProfileNameInput.value;
   const about = editProfileDescriptionInput.value;
@@ -230,7 +191,7 @@ function handleEditProfileSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setButtonText(submitBtn, false); // back to "Save"
+      setButtonText(submitBtn, false);
     });
 }
 
@@ -310,4 +271,10 @@ deleteModalCloseBtn.addEventListener("click", () => {
   closeModal(deleteModal);
 });
 
+const deleteCancelBtn = deleteModal.querySelector(".modal__submit-btn_cancel");
+
+deleteCancelBtn.addEventListener("click", (evt) => {
+  evt.preventDefault();
+  closeModal(deleteModal);
+});
 enableValidation(settings);

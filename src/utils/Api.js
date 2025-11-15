@@ -29,7 +29,7 @@ class Api {
       Promise.reject(`Error: ${res.status}`);
     });
   }
-  // other methods for working with the API
+  
   addCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
@@ -64,7 +64,7 @@ class Api {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      // Send the data in the body as a JSON string.
+
       body: JSON.stringify({
         avatar,
       }),
@@ -99,5 +99,5 @@ class Api {
     });
   }
 }
-// export the class
+
 export default Api;

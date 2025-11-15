@@ -11,7 +11,7 @@
   position: relative;
   margin-right: 20px;
   border-radius: 8px;
-  
+
 }
 
 .profile__avatar-btn {
@@ -25,10 +25,13 @@
   color: #ffffff;
   gap: 8px;
   cursor: pointer;
+  padding: 16px 8px;
 }
 
 .profile__avatar-container:hover .profile__avatar-btn {
   visibility: visible;
+  background-color: transparent;
+  border: none;
 }
 
 .profile__avatar-btn::after {
@@ -135,10 +138,23 @@
 
   .profile__avatar-btn {
     visibility: visible;
+    background-color: #21212199;
+   width: 23.34px;
+height: 23.34px;
+opacity: 0.6;
+top: 52px;
+left: 52px;
+border-radius: 6px;
+padding: 4px;
+gap: 8px;
+color: #FFFFFF;
+display: flex;
+align-items: center;
+
   }
 
   .profile__avatar-btn::after {
-    content: " ";
+    content: "";
   }
 
   .profile__name {
