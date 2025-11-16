@@ -2,6 +2,8 @@ import "./index.css";
 import { enableValidation, settings } from "../scripts/validation.js";
 import Api from "../utils/Api.js";
 import { setButtonText } from "../utils/helpers.js";
+import { disableButton } from "../scripts/validation.js";
+import { resetValidation } from "../scripts/validation.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
@@ -146,7 +148,11 @@ function closeModal(modal) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  const inputList = Array.from(
+    editProfileForm.querySelectorAll(settings.inputSelector)
+  );
 
+  resetValidation(editProfileForm, inputList, settings);
   openModal(editProfileModal);
 });
 
