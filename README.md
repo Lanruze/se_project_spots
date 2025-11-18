@@ -34,3 +34,6 @@ Check out these videos, where I describe my project
 and some challenges I faced while building it:
 [First Video Spots](https://www.loom.com/share/c85cb708296f4eb8811f8a7f16a14579?sid=5bfb7b4c-9443-4378-bbd0-ab05bf17c5a6)
 [Second Video Spots](https://drive.google.com/file/d/1wDtSTqZClZTxe87w2CD4ANYH8vIuLvqY/view?usp=sharing)
+
+**Demo Video**
+[Demo Spots: HTML, CSS & Javascript Responsive Website](https://drive.google.com/file/d/1wDtSTqZClZTxe87w2CD4ANYH8vIuLvqY/view?usp=sharing)
