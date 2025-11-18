@@ -36,4 +36,4 @@ and some challenges I faced while building it:
 [Second Video Spots](https://drive.google.com/file/d/1wDtSTqZClZTxe87w2CD4ANYH8vIuLvqY/view?usp=sharing)
 
 **Demo Video**
-[Demo Spots: HTML, CSS & Javascript Responsive Website](https://drive.google.com/file/d/1wDtSTqZClZTxe87w2CD4ANYH8vIuLvqY/view?usp=sharing)
+[Demo Spots: HTML, CSS & Javascript Responsive Website](https://drive.google.com/file/d/1k2qvbDTVW_SU0IZzZM17h3uD1V5SYzWm/view?usp=drive_link)
